@@ -11,15 +11,15 @@
         <form class="col s12" asp-controller="Card" asp-action="Update">
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Card contents"   asp-for="Contents" />
+                    <input placeholder="Card contents" asp-for="Contents" />
                     <label asp-for="Contents">Contents</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea placeholder="Notes" 
-                              asp-for="Notes"  
-                                class="materialize-textarea"></textarea>
+                    <textarea placeholder="Notes"
+                              asp-for="Notes"
+                              class="materialize-textarea"></textarea>
                     <label asp-for="Notes">Notes</label>
                 </div>
             </div>
@@ -31,10 +31,17 @@
             </div>
             <div class="row">
                 <input type="submit" value="Save" class="btn">
-                <button asp-controller="Home" asp-action="Index" class="btn">Back to Boards</button>
+                <button asp-controller="Board" asp-action="Index" asp-route-boardId="@ViewBag.BoardId" class="btn">Back to Boards</button>
             </div>
-            <input asp-for="Id" type="hidden"/>
+            <input asp-for="Id" type="hidden" />
         </form>
+        <div class="row">
+            <form asp-action="DeleteCard" asp-controller="Card" method="post">
+                <input type="hidden" value="@ViewBag.BoardId" name="boardId" />
+                <input type="hidden" value="@Model.Id" name="id" />
+                <button class="btn" type="submit">Delete Card</button>
+            </form>
+        </div>
     </div>
 </div>
 

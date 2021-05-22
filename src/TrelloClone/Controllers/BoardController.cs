@@ -39,5 +39,15 @@ namespace TrelloClone.Controllers
             
             return RedirectToAction(nameof(Index), new { id = viewModel.Id });
         }
+
+        [HttpPost]
+        public IActionResult DeleteBoard(int id)
+        {
+            if (!ModelState.IsValid) return RedirectToAction("Index", "Home"); 
+
+            _boardService.DeleteBoad(id);
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

@@ -6,3 +6,41 @@
 input[type=text].input-validation-error {
     border-bottom: 1px solid #f00;
 }
+
+.bg-yellow {
+    background: #feaf20;
+    color: #3c4043;
+}
+
+.card-shadow {
+    box-shadow: 0 5px 15px rgb(0 0 0 / 15%);
+}
+
+.bg-dark {
+    color: white;
+    background: #3c4043;
+}
+
+.card .card-action {
+    background-color: #feaf20;
+    border-top: 1px solid rgba(160,160,160,0.7);
+    position: relative;
+    padding: 16px 24px;
+    color: #3c4043;
+}
+
+.collection-item {
+    color: white;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
+
+}
+
+.text-btn{
+    padding:0;
+    background:transparent;
+    border:none;
+    color:white;
+    cursor:pointer;
+}

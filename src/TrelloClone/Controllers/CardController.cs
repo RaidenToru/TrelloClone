@@ -14,11 +14,21 @@ namespace TrelloClone.Controllers
         }
         
         [HttpGet]
-        public IActionResult Details(int id)
+        public IActionResult Details(int id, int boardId)
         {
             var viewModel = _cardService.GetDetails(id);
-
+            ViewBag.BoardId = boardId;
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteCard(int id, int boardId)
+        {
+            if (!ModelState.IsValid) RedirectToAction("Index", "Board", new { id = boardId });
+
+            _cardService.Delete(id);
+
+            return RedirectToAction("Index", "Board", new { id = boardId });
         }
 
         [HttpPost]

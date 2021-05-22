@@ -54,7 +54,7 @@
             <a asp-controller="Board"
                 asp-action="AddCard"
                 asp-route-id="@Model.Id"
-                class="wave-effect waves-light btn">
+                class="wave-effect waves-light btn bg-dark">
                 Add A Card
             </a>
         </div>
@@ -72,10 +72,10 @@
                     @foreach (var card in column.Cards)
                     {
                         <div class="card blue-grey darken-1 draggable" id="@card.Id">
-                            <div class="card-content white-text">
+                            <div class="card-content white-text bg-yellow">
                                 <p>
                                     <a asp-controller="Card" asp-action="Details"
-                                       asp-route-id="@card.Id" class="white-text">
+                                       asp-route-id="@card.Id" asp-route-boardId="@Model.Id" class="white-text">
                                         @card.Content
                                     </a>
                                 </p>

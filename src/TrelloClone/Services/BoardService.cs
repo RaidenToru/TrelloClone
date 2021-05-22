@@ -100,6 +100,7 @@ namespace TrelloClone.Services
             _dbContext.SaveChanges();
         }
 
+
         public void AddBoard(NewBoard viewModel)
         {
             _dbContext.Boards.Add(new Models.Board
@@ -107,6 +108,14 @@ namespace TrelloClone.Services
                 Title = viewModel.Title
             });
 
+            _dbContext.SaveChanges();
+        }
+
+        public void DeleteBoad(int id)
+        {
+            Models.Board board = new Models.Board();
+            board.Id = id;
+            _dbContext.Boards.Remove(board);
             _dbContext.SaveChanges();
         }
 
